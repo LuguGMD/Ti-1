@@ -21,16 +21,30 @@ public class PlayerController : MonoBehaviour
     float xOffset;
     float zOffset;
     float yOffset;
+    private Shooter shooter;
 
     // Start is called before the first frame update
     void Start()
     {
         //Getting the camera controller position
         pivot = CameraController.main.transform;
+        //Getting the shooter component
+        shooter = GetComponent<Shooter>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        Movement();
+        Shooting();
+    }
+
+    private void LateUpdate()
+    {
+        LateMovement();
+    }
+
+    void Movement()
     {
         //Getting player's input
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -41,10 +55,10 @@ public class PlayerController : MonoBehaviour
         zOffset += verticalInput * speed * Time.deltaTime;
 
         //Making the player float
-        yOffset = Mathf.Cos(Time.fixedTime * floatSpeed) * floatHeight + floatHeight;
+        yOffset = (Mathf.Cos(Time.fixedTime * floatSpeed) * floatHeight) + floatHeight;
     }
 
-    private void LateUpdate()
+    void LateMovement()
     {
         //Clamping player position
         xOffset = Mathf.Clamp(xOffset, -xBoundary, xBoundary);
@@ -55,6 +69,21 @@ public class PlayerController : MonoBehaviour
 
         //Updating the player position
         transform.position = pivot.position + offset;
+    }
 
+    void Shooting()
+    {
+        //Getting the shooting input
+        if (Input.GetKey(KeyCode.Space))
+        {
+            shooter.Shoot();
+        }
+
+        //Getting the inputs to change the bullet type
+        int Q = Input.GetKeyDown(KeyCode.Q) ? 0 : 1;
+        int E = Input.GetKeyDown(KeyCode.E) ? 0 : 1;
+    
+        //Changing the index of the shooter
+        shooter.bulletIndex += Q - E;
     }
 }
