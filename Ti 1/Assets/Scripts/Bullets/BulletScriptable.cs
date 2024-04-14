@@ -17,6 +17,7 @@ public class BulletScriptable : ScriptableObject
     public float rechargeCooldown;
     public float shootCooldown;
     public bool canShoot;
+    public bool isCharge;
 
     public void Init(BulletScriptable other)
     {
@@ -30,6 +31,7 @@ public class BulletScriptable : ScriptableObject
         this.rechargeCooldown = other.rechargeCooldown;
         this.shootCooldown = other.shootCooldown;
         this.canShoot = other.canShoot;
+        this.isCharge = other.isCharge;
     }
 
 }
