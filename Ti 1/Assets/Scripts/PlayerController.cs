@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     float xOffset;
     float zOffset;
     float yOffset;
+
     private Shooter shooter;
+    private HealthSystem healthSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
         pivot = CameraController.main.transform;
         //Getting the shooter component
         shooter = GetComponent<Shooter>();
+        //Getting the health system component
+        healthSystem = GetComponent<HealthSystem>();
     }
 
     // Update is called once per frame
@@ -44,6 +48,7 @@ public class PlayerController : MonoBehaviour
         LateMovement();
     }
 
+    #region Control
     void Movement()
     {
         //Getting player's input
@@ -82,8 +87,23 @@ public class PlayerController : MonoBehaviour
         //Getting the inputs to change the bullet type
         int Q = Input.GetKeyDown(KeyCode.Q) ? 0 : 1;
         int E = Input.GetKeyDown(KeyCode.E) ? 0 : 1;
-    
+
         //Changing the index of the shooter
-        shooter.bulletIndex += Q - E;
+        if (Q - E != 0) shooter.bulletIndex += Q - E;
+
+    }
+    #endregion
+
+    void TakeDamage(int damage)
+    {
+        //Taking the damage
+        bool dead = healthSystem.TakeDamage(damage);
+
+        //Checking if player is dead
+        if(dead)
+        {
+            //Calling the action of player dead
+            Actions.playerDead?.Invoke();
+        }
     }
 }

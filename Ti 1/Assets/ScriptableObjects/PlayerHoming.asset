@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 377b9f13a0411584e8b5211bfa71e992, type: 3}
-  m_Name: PlayerQuick
+  m_Name: PlayerHoming
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 25
   damage: 1
   bulletPrefab: {fileID: 2792341256585668953, guid: ff5f4b78003c4f7499328fd074af00cf, type: 3}
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   maxAmmo: 12
   currentAmmo: 0
   rechargeCooldown: 1
-  shootCooldown: 0.2
+  shootCooldown: 1
   canShoot: 1

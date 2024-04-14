@@ -6,8 +6,31 @@ public class Shooter : MonoBehaviour
 {
     //Holds the available bullets to shoot
     public List<BulletScriptable> bulletsList = new List<BulletScriptable>();
+    
+    
+
     //The index of the slected bullet
-    public int bulletIndex = 0;
+    int m_bulletIndex = 0;
+
+    public int bulletIndex
+    {
+        get { return m_bulletIndex; }
+        set
+        {
+            if (value >= bulletsList.Count)
+            {
+                m_bulletIndex = 0;
+            }
+            else if(value < 0) 
+            {
+                m_bulletIndex = bulletsList.Count-1;
+            }
+            else
+            {
+                m_bulletIndex = value;
+            }
+        }
+    }
 
     private void Start()
     {
