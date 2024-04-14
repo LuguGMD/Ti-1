@@ -328,7 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: []
   moveSpeed: 3
-  rotateSpeed: 3
+  rotateSpeed: 1
   defaultDistance: 5
   cameraDistance: 5
 --- !u!4 &200154870
@@ -806,6 +806,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eaa01521018c244382d42fe03aef07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
+  floatSpeed: 0
+  floatHeight: 0
+  xBoundary: 1.5
+  zBoundary: 1.5
 --- !u!1 &657091810
 GameObject:
   m_ObjectHideFlags: 0
