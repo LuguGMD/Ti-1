@@ -24,10 +24,15 @@ public class Bullet : MonoBehaviour
 
     void StartStats()
     {
+        //Changing stats
         speed = bulletStats.speed;
         damage = bulletStats.damage;
 
+        //Changing Mesh
         GetComponent<MeshFilter>().mesh = bulletStats.mesh;
+
+        //Changing tag
+        tag = bulletStats.tag;
     }
 
 }

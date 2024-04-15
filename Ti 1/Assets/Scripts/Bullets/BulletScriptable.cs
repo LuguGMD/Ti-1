@@ -10,6 +10,7 @@ public class BulletScriptable : ScriptableObject
     public int damage;
     public GameObject bulletPrefab;
     public Mesh mesh;
+    public string tag;
 
     [Header("Shooting")]
     public int maxAmmo;
@@ -25,6 +26,7 @@ public class BulletScriptable : ScriptableObject
         this.damage = other.damage;
         this.bulletPrefab = other.bulletPrefab;
         this.mesh = other.mesh;
+        this.tag = other.tag;
 
         this.maxAmmo = other.maxAmmo;
         this.currentAmmo = other.currentAmmo;

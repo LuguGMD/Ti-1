@@ -16,8 +16,10 @@ MonoBehaviour:
   damage: 1
   bulletPrefab: {fileID: 2792341256585668953, guid: ff5f4b78003c4f7499328fd074af00cf, type: 3}
   mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  tag: Player
   maxAmmo: 12
   currentAmmo: 0
   rechargeCooldown: 1
   shootCooldown: 1
   canShoot: 1
+  isCharge: 0

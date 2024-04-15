@@ -21,6 +21,11 @@ public class HealthSystem : MonoBehaviour
     
     public bool isDead = false;
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
+
     public bool TakeDamage(int damage)
     {
         //Taking the damage

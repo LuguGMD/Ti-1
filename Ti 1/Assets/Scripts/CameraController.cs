@@ -22,6 +22,8 @@ public class CameraController : MonoBehaviour
     public float defaultDistance;
     public float cameraDistance;
 
+    private bool canFollow = true;
+
 
     private void Awake()
     {
@@ -47,6 +49,8 @@ public class CameraController : MonoBehaviour
             //Adding the waypoints to the list
            points.Add(path.transform.GetChild(i).gameObject.GetComponent<Waypoint>());
         }
+
+        
     }
 
     // Update is called once per frame
@@ -60,10 +64,25 @@ public class CameraController : MonoBehaviour
         Camera.main.transform.position = transform.position + Camera.main.transform.forward * -cameraDistance;
     }
 
+    private void OnEnable()
+    {
+        //Subscribing to actions
+        Actions.waveStarted += StopMoving;
+        Actions.waveEnded += StartMoving;
+    }
+
+    private void OnDisable()
+    {
+        //Unsubscribing to actions
+        Actions.waveStarted -= StopMoving;
+        Actions.waveEnded -= StartMoving;
+    }
+
+    #region Movement
     void FollowPoint()
     {
         //Checking if there are any points left
-        if (points.Count > 0)
+        if (points.Count > 0 && canFollow == true)
         {
 
             //Getting the direction towards waypoint
@@ -120,5 +139,20 @@ public class CameraController : MonoBehaviour
             dirAngle = Mathf.Sign(targetAngle - currentAngle);
         }
     }
+    #endregion
+
+    #region Control
+    
+    void StartMoving()
+    {
+        canFollow = true;
+    }
+
+    void StopMoving()
+    {
+        canFollow = false;
+    }
+
+    #endregion
 
 }

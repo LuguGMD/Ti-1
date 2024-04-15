@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public static PlayerController main;
+
     [Header("Movement")]
     Transform pivot;
 
@@ -24,6 +26,18 @@ public class PlayerController : MonoBehaviour
 
     private Shooter shooter;
     private HealthSystem healthSystem;
+
+    private void Awake()
+    {
+        if (main == null)
+        {
+            main = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

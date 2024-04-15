@@ -10,4 +10,5 @@ public static class Actions
     public static Action quit;
     public static Action playerDead;
     public static Action waveStarted;
+    public static Action waveEnded;
 }
