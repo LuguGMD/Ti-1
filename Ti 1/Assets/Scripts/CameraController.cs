@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
 
     private float currentAngle;
     private float targetAngle;
+    private float dirAngle;
 
     private float reachDist = 0.2f;
 
@@ -75,7 +76,11 @@ public class CameraController : MonoBehaviour
             //Moving towards waypoint
             transform.position += dir * moveSpeed * Time.deltaTime;
 
-            currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, rotateSpeed * Time.deltaTime);
+            if (Mathf.Abs(currentAngle - targetAngle) > rotateSpeed * Time.deltaTime)
+            {
+                //Rotating towards waypoint
+                currentAngle += rotateSpeed * dirAngle * Time.deltaTime;
+            }
 
             //Rotating towards waypoint
             transform.rotation = new Quaternion(0f, currentAngle, 0f, transform.rotation.w);
@@ -90,6 +95,13 @@ public class CameraController : MonoBehaviour
 
     void ReachPoint()
     {
+        //Checking if reached point is a trigger
+        if (points[0].isTrigger)
+        {
+            //Invoking the unity Event from the reached point
+            points[0].trigger?.Invoke();
+        }
+
         //Removing reached point
         points.RemoveAt(0);
     }
@@ -104,6 +116,8 @@ public class CameraController : MonoBehaviour
 
             //Saving the target angle
             targetAngle = transform.rotation.y;
+
+            dirAngle = Mathf.Sign(targetAngle - currentAngle);
         }
     }
 
