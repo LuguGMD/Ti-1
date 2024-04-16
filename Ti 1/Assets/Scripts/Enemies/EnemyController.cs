@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
     private HealthSystem hs;
     private DropSystem ds;
 
+    private bool isShooter = false;
+
     public int damage = 1;
 
     // Start is called before the first frame update
@@ -21,8 +23,10 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //DEBUG
-        shooter.Shoot();
+        if (isShooter)
+        {
+            shooter.Shoot();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +39,11 @@ public class EnemyController : MonoBehaviour
                 KillEnemy();
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        Actions.enemyKilled?.Invoke();
     }
 
     public void KillEnemy()
@@ -65,6 +74,8 @@ public class EnemyController : MonoBehaviour
         //Checking if its a shooter
         if (enemyStats.bulletType != null)
         {
+            isShooter = true;
+
             shooter = GetComponent<Shooter>();
             shooter.bulletsList.Add(enemyStats.bulletType);
 

@@ -13,6 +13,8 @@ public class WaveManager : MonoBehaviour
     public bool waveCleared = false;
     public bool roundCleared = false;
 
+    private int enemyCount = 0;
+
     //Distance from the camera in the Z axis to spawn the enemies
     private float zOffset = 60f;
 
@@ -38,10 +40,35 @@ public class WaveManager : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        Actions.enemyKilled += EnemyKilled;
+    }
+
+    private void OnDisable()
+    {
+        Actions.enemyKilled -= EnemyKilled;
+    }
+
+    private void EnemyKilled()
+    {
+        enemyCount--;
+
+        //Checking if there aren't enemies left
+        if (enemyCount <= 0)
+        {
+            roundCleared = true;
+        }
+    }
+
     public void StartWave()
     {
         //Invoking the wave started action
         Actions.waveStarted?.Invoke();
+
+        roundCleared = false;
+        waveCleared = false;
+
         StartCoroutine(RunWave());
     }
 
@@ -50,6 +77,8 @@ public class WaveManager : MonoBehaviour
         //Instantiating the enemy
         GameObject enemyInstance = Instantiate(enemyPrefab, enemySpawn, CameraController.main.transform.rotation);
         enemyInstance.transform.Rotate(Vector3.up * 180);
+
+        enemyCount++;
     }
 
     private Vector3 GetPos(SpawnPositions spawnEnum)
@@ -119,6 +148,7 @@ public class WaveManager : MonoBehaviour
                 roundCleared = false;
             }
 
+            waveCleared = true;
             //Calling the action wave ended
             Actions.waveEnded?.Invoke();
             //Resseting the rounds
