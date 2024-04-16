@@ -30,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
         shooter = GetComponent<Shooter>();
         shooter.bulletsList.Add(enemyStats.bulletType);
+
+        shooter.StartBullet(shooter.bulletsList.Count - 1);
     }
 
 }
