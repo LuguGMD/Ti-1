@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
 
     public EnemyScriptable enemyStats;
-    public Shooter shooter;
+    private Shooter shooter;
     private HealthSystem hs;
     private DropSystem ds;
 
@@ -69,14 +69,12 @@ public class EnemyController : MonoBehaviour
         hs.maxHealth = enemyStats.life;
         hs.currentHealth = enemyStats.life;
 
-        GetComponent<MeshFilter>().mesh = enemyStats.mesh;
-
         //Checking if its a shooter
         if (enemyStats.bulletType != null)
         {
             isShooter = true;
 
-            shooter = GetComponent<Shooter>();
+            shooter = GetComponentInChildren<Shooter>();
             shooter.bulletsList.Add(enemyStats.bulletType);
 
             shooter.StartBullet(shooter.bulletsList.Count - 1);

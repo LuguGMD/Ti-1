@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         //Getting the camera controller position
         pivot = CameraController.main.transform;
         //Getting the shooter component
-        shooter = GetComponent<Shooter>();
+        shooter = GetComponentInChildren<Shooter>();
         //Getting the health system component
         healthSystem = GetComponent<HealthSystem>();
     }
@@ -71,6 +71,13 @@ public class PlayerController : MonoBehaviour
         else if(other.CompareTag("BulletEnemy"))
         {
             TakeDamage(other.GetComponent<Bullet>().damage);
+            Destroy(other.gameObject);
+        }
+        else if(other.CompareTag("Heal"))
+        {
+            //Healing Self
+            healthSystem.Heal(1);
+            //Destroying heal object
             Destroy(other.gameObject);
         }
     }

@@ -6,8 +6,6 @@ public class Shooter : MonoBehaviour
 {
     //Holds the available bullets to shoot
     public List<BulletScriptable> bulletsList = new List<BulletScriptable>();
-    
-    
 
     //The index of the slected bullet
     int m_bulletIndex = 0;

@@ -1392,13 +1392,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520355386}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 1.5999999, z: -2.4899998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 200154870}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1001 &1531415845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2065,11 +2065,11 @@ PrefabInstance:
     - target: {fileID: 3739268733546474720, guid: 19bda033edbb6a44093c6d765512c24b, type: 3}
       propertyPath: waves.Array.data[0].rounds.Array.data[0].enemies.Array.data[0].instance
       value: 
-      objectReference: {fileID: 5485347787028568829, guid: 88cb895584e28c744b3a9e4b1f76ad61, type: 3}
+      objectReference: {fileID: 6624543020596454051, guid: 695345ad6393d0449a459a99af617565, type: 3}
     - target: {fileID: 3739268733546474720, guid: 19bda033edbb6a44093c6d765512c24b, type: 3}
       propertyPath: waves.Array.data[0].rounds.Array.data[0].enemies.Array.data[1].instance
       value: 
-      objectReference: {fileID: 5485347787028568829, guid: 88cb895584e28c744b3a9e4b1f76ad61, type: 3}
+      objectReference: {fileID: 6624543020596454051, guid: 695345ad6393d0449a459a99af617565, type: 3}
     - target: {fileID: 3739268733546474720, guid: 19bda033edbb6a44093c6d765512c24b, type: 3}
       propertyPath: waves.Array.data[0].rounds.Array.data[0].enemies.Array.data[0].spawnPosition
       value: 5
@@ -2093,7 +2093,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6262489739994229075, guid: 6e86e71f017375940a1133f5d3b5d849, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6262489739994229075, guid: 6e86e71f017375940a1133f5d3b5d849, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2101,7 +2101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6262489739994229075, guid: 6e86e71f017375940a1133f5d3b5d849, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6262489739994229075, guid: 6e86e71f017375940a1133f5d3b5d849, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2188,26 +2188,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5197362399423148644, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
-      propertyPath: bulletsList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5197362399423148644, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
-      propertyPath: bulletsList.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: d74f0369cf902944597acadbae8dad7b, type: 2}
-    - target: {fileID: 5197362399423148644, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
-      propertyPath: bulletsList.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 505cfa62e7fcb5f4087092ff25d659fb, type: 2}
     - target: {fileID: 5490518100982496485, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5490518100982496485, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
-      propertyPath: m_TagString
-      value: Player
+    - target: {fileID: 8094852526279899835, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
+      propertyPath: bulletsList.Array.size
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8094852526279899835, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
+      propertyPath: bulletsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 08ece60e5e4e68748991621d98deed7b, type: 2}
+    - target: {fileID: 8094852526279899835, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
+      propertyPath: bulletsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 505cfa62e7fcb5f4087092ff25d659fb, type: 2}
+    - target: {fileID: 8094852526279899835, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
+      propertyPath: bulletsList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: d74f0369cf902944597acadbae8dad7b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
