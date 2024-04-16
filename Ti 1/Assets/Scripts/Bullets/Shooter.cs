@@ -82,7 +82,7 @@ public class Shooter : MonoBehaviour
 
     public void StartBullet(int ind)
     {
-        BulletScriptable newBullet = new BulletScriptable();
+        BulletScriptable newBullet = ScriptableObject.CreateInstance<BulletScriptable>();
 
         newBullet.Init(bulletsList[ind]);
 

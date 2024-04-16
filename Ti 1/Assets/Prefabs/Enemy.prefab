@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5311657270295367325}
   - component: {fileID: 2385165768572566314}
   - component: {fileID: 5747862128133813195}
+  - component: {fileID: -7850375495003854369}
   - component: {fileID: 170447422637039437}
   m_Layer: 0
   m_Name: Enemy
@@ -163,6 +164,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletsList: []
+--- !u!114 &-7850375495003854369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5485347787028568829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d01d2541db6c544c988beb6ebc4e03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPrefabs: []
+  dropChances: []
 --- !u!114 &170447422637039437
 MonoBehaviour:
   m_ObjectHideFlags: 0

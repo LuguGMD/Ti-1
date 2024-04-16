@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //DEBUG
         shooter.Shoot();
     }
 
@@ -61,10 +62,14 @@ public class EnemyController : MonoBehaviour
 
         GetComponent<MeshFilter>().mesh = enemyStats.mesh;
 
-        shooter = GetComponent<Shooter>();
-        shooter.bulletsList.Add(enemyStats.bulletType);
+        //Checking if its a shooter
+        if (enemyStats.bulletType != null)
+        {
+            shooter = GetComponent<Shooter>();
+            shooter.bulletsList.Add(enemyStats.bulletType);
 
-        shooter.StartBullet(shooter.bulletsList.Count - 1);
+            shooter.StartBullet(shooter.bulletsList.Count - 1);
+        }
     }
 
 }
