@@ -8,4 +8,7 @@ public class EnemyScriptable : ScriptableObject
     public int life;
     public BulletScriptable bulletType;
     public Mesh mesh;
+
+    public GameObject[] dropPrefabs;
+    public float[] dropChances;
 }

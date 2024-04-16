@@ -62,6 +62,19 @@ public class PlayerController : MonoBehaviour
         LateMovement();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            TakeDamage(other.GetComponent<EnemyController>().damage);
+        }
+        else if(other.CompareTag("BulletEnemy"))
+        {
+            TakeDamage(other.GetComponent<Bullet>().damage);
+            Destroy(other.gameObject);
+        }
+    }
+
     #region Control
     void Movement()
     {
@@ -120,4 +133,5 @@ public class PlayerController : MonoBehaviour
             Actions.playerDead?.Invoke();
         }
     }
+
 }

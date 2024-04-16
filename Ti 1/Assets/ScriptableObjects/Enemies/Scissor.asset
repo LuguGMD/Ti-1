@@ -15,3 +15,7 @@ MonoBehaviour:
   life: 1
   bulletType: {fileID: 11400000, guid: b2c5aa532381dba4ca92faacc162d16f, type: 2}
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  dropPrefabs:
+  - {fileID: 144656712288083624, guid: 86990be2a4bc89f468a1bcdc36e94067, type: 3}
+  dropChances:
+  - 100

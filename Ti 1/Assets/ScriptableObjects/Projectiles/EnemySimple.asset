@@ -16,7 +16,7 @@ MonoBehaviour:
   damage: 1
   bulletPrefab: {fileID: 2792341256585668953, guid: ff5f4b78003c4f7499328fd074af00cf, type: 3}
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  tag: Enemy
+  tag: BulletEnemy
   maxAmmo: 12
   currentAmmo: 2
   rechargeCooldown: 1
