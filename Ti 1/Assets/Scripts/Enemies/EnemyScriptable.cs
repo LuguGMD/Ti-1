@@ -9,6 +9,8 @@ public class EnemyScriptable : ScriptableObject
     public float speed;
     public BulletScriptable bulletType;
 
+    public float points;
+
     public GameObject[] dropPrefabs;
     public float[] dropChances;
 }

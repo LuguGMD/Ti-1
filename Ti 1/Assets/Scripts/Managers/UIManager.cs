@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class UIManager : MonoBehaviour
     public static UIManager main;
 
     public TextMeshProUGUI lifeText;
+    public TextMeshProUGUI pointsText;
+    public Image winPanel;
+    public Image losePanel;
+    public Image pausePanel;
 
     private void Awake()
     {
@@ -34,8 +39,44 @@ public class UIManager : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        Actions.playerDead += LoseState;
+        Actions.winRoom += WinState;
+        Actions.pause += PauseState;
+        Actions.resume += ResumeState;
+    }
+
+    private void OnDisable()
+    {
+        Actions.playerDead -= LoseState;
+        Actions.winRoom -= WinState;
+        Actions.pause -= PauseState;
+        Actions.resume -= ResumeState;
+    }
+
     public void UpdateLifeText(int life)
     {
         lifeText.text = "Life: " + life.ToString();
+    }
+
+    public void WinState()
+    {
+        winPanel.gameObject.SetActive(true);
+    }
+
+    public void LoseState()
+    {
+        losePanel.gameObject.SetActive(true);
+    }
+
+    public void PauseState()
+    {
+        pausePanel.gameObject.SetActive(true);
+    }
+
+    public void ResumeState()
+    {
+        pausePanel.gameObject.SetActive(false);
     }
 }

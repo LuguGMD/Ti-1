@@ -18,24 +18,27 @@ public class Pen : EnemyController
     void Update()
     {
 
-        if (!isNear)
+        if (Manager.main.isGameRunning)
         {
-            //Getting the distance between enemy and player
-            dist = (transform.position - CameraController.main.transform.position).magnitude;
-
-            //Moving towards player
-            transform.position += transform.forward * speed * Time.deltaTime;
-
-            //Checking if enemy is near enough
-            if (dist <= minDist)
+            if (!isNear)
             {
-                isNear = true;
+                //Getting the distance between enemy and player
+                dist = (transform.position - CameraController.main.transform.position).magnitude;
+
+                //Moving towards player
+                transform.position += transform.forward * speed * Time.deltaTime;
+
+                //Checking if enemy is near enough
+                if (dist <= minDist)
+                {
+                    isNear = true;
+                }
             }
-        }
-        else
-        {
-            //Shooting
-            shooter.Shoot();
+            else
+            {
+                //Shooting
+                shooter.Shoot();
+            }
         }
     }
 }

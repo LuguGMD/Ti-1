@@ -20,13 +20,19 @@ public class Bullet : MonoBehaviour
 
         hs = GetComponent<HealthSystem>();
         StartStats();
+
+        Input.GetMouseButtonDown(0);
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
-
+        if (Manager.main.isGameRunning)
+        {
+            transform.position += transform.forward * speed * Time.deltaTime;
+        }
         //Checking it the bullet is dead
         if(hs.isDead)
         {

@@ -56,7 +56,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FollowPoint();
+        if (Manager.main.isGameRunning)
+        {
+            FollowPoint();
+        }
     }
 
     private void LateUpdate()

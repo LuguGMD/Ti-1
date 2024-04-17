@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
     private HealthSystem hs;
     private DropSystem ds;
 
+    private float points;
+
     protected float speed;
 
     private bool isShooter = false;
@@ -25,9 +27,12 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isShooter)
+        if (Manager.main.isGameRunning)
         {
-            shooter.Shoot();
+            if (isShooter)
+            {
+                shooter.Shoot();
+            }
         }
     }
 
@@ -56,6 +61,7 @@ public class EnemyController : MonoBehaviour
 
     public void KillEnemy()
     {
+        Manager.main.AddPoint(points);
         ds.Drop(transform.position);
         Destroy(gameObject);
     }
@@ -78,6 +84,8 @@ public class EnemyController : MonoBehaviour
         hs.currentHealth = enemyStats.life;
 
         speed = enemyStats.speed;
+
+        points = enemyStats.points;
 
         //Checking if its a shooter
         if (enemyStats.bulletType != null)

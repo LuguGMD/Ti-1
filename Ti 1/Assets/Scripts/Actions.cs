@@ -15,4 +15,6 @@ public static class Actions
     public static Action waveEnded;
 
     public static Action enemyKilled;
+
+    public static Action winRoom;
 }

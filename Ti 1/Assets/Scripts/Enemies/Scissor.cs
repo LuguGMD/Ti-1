@@ -16,6 +16,9 @@ public class Scissor : EnemyController
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
+        if (Manager.main.isGameRunning)
+        {
+            transform.position += transform.forward * speed * Time.deltaTime;
+        }
     }
 }

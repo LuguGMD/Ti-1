@@ -15,6 +15,7 @@ MonoBehaviour:
   life: 1
   speed: 10
   bulletType: {fileID: 0}
+  points: 50
   dropPrefabs:
   - {fileID: 144656712288083624, guid: 86990be2a4bc89f468a1bcdc36e94067, type: 3}
   dropChances:

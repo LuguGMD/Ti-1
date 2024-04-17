@@ -53,8 +53,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
-        Shooting();
+        if (Manager.main.isGameRunning)
+        {
+            Movement();
+            Shooting();
+        }
     }
 
     private void LateUpdate()
@@ -79,6 +82,10 @@ public class PlayerController : MonoBehaviour
             healthSystem.Heal(1);
             //Destroying heal object
             Destroy(other.gameObject);
+
+            //Updating UIManager's life text
+            UIManager.main.UpdateLifeText(healthSystem.currentHealth);
+
         }
     }
 
