@@ -69,6 +69,8 @@ public class WaveManager : MonoBehaviour
         roundCleared = false;
         waveCleared = false;
 
+        currentRound = 0;
+
         StartCoroutine(RunWave());
     }
 
