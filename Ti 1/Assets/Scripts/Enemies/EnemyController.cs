@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
 
     public EnemyScriptable enemyStats;
-    private Shooter shooter;
+    protected Shooter shooter;
     private HealthSystem hs;
     private DropSystem ds;
 
@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     public int damage = 1;
 
     // Start is called before the first frame update
-    protected virtual void Start()
+    public virtual void Start()
     {
         StartStats();
     }
@@ -31,11 +31,17 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("BulletPlayer"))
         {
-            bool dead = hs.TakeDamage(other.GetComponent<Bullet>().damage);    
+            //Getting the projectile's bullet script
+            Bullet bullet = other.GetComponent<Bullet>();
+            
+            //Making the bullet take damage
+            bullet.GetComponent<HealthSystem>().TakeDamage(damage);
+
+            bool dead = hs.TakeDamage(bullet.damage);    
             if(dead)
             {
                 KillEnemy();

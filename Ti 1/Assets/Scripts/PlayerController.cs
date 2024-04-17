@@ -133,6 +133,9 @@ public class PlayerController : MonoBehaviour
         //Taking the damage
         bool dead = healthSystem.TakeDamage(damage);
 
+        //Updating UIManager's life text
+        UIManager.main.UpdateLifeText(healthSystem.currentHealth);
+
         //Checking if player is dead
         if(dead)
         {
