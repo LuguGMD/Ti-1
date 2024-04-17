@@ -16,7 +16,7 @@ public class WaveManager : MonoBehaviour
     private int enemyCount = 0;
 
     //Distance from the camera in the Z axis to spawn the enemies
-    private float zOffset = 60f;
+    private float zOffset = 40f;
 
     public enum SpawnPositions
     {

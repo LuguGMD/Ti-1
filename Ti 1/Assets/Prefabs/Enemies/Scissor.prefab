@@ -97,10 +97,10 @@ GameObject:
   - component: {fileID: 1189494051194869990}
   - component: {fileID: 7156083846773215208}
   - component: {fileID: 738131283352705524}
-  - component: {fileID: 5955281884915931041}
   - component: {fileID: 2274001830690230881}
   - component: {fileID: 1294531827663012566}
   - component: {fileID: 4767083340995654964}
+  - component: {fileID: 2767034525345630498}
   m_Layer: 0
   m_Name: Scissor
   m_TagString: Untagged
@@ -223,20 +223,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5955281884915931041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6624543020596454051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0de2bfafbf03324ba05082ca9293640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 5635b245596b71b43851a369fb284ff4, type: 2}
-  damage: 1
 --- !u!114 &2274001830690230881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462bbfb3503534a4bac4756bf8626a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 0
   isDead: 0
 --- !u!114 &1294531827663012566
 MonoBehaviour:
@@ -278,6 +264,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropPrefabs: []
   dropChances: []
+--- !u!114 &2767034525345630498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6624543020596454051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c64977f4902e1042aa2c254e1988988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: 5635b245596b71b43851a369fb284ff4, type: 2}
+  damage: 1
 --- !u!1 &7464159363042104691
 GameObject:
   m_ObjectHideFlags: 0

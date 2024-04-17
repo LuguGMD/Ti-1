@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
     private HealthSystem hs;
     private DropSystem ds;
 
+    protected float speed;
+
     private bool isShooter = false;
 
     public int damage = 1;
@@ -68,6 +70,8 @@ public class EnemyController : MonoBehaviour
         hs = GetComponent<HealthSystem>();
         hs.maxHealth = enemyStats.life;
         hs.currentHealth = enemyStats.life;
+
+        speed = enemyStats.speed;
 
         //Checking if its a shooter
         if (enemyStats.bulletType != null)

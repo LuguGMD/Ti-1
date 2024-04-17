@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyScriptable : ScriptableObject
 {
     public int life;
+    public float speed;
     public BulletScriptable bulletType;
 
     public GameObject[] dropPrefabs;
