@@ -55,6 +55,7 @@ public class Shooter : MonoBehaviour
             //Disabling shooting
             bullet.canShoot = false;
             StartCoroutine(Recharge());
+
         }
     }
 

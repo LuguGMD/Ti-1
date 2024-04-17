@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cf2f868922da4428281f7f6e646964, type: 3}
   m_Name: Scissor
   m_EditorClassIdentifier: 
-  life: 1
+  life: 2
   speed: 10
   bulletType: {fileID: 0}
   points: 50
