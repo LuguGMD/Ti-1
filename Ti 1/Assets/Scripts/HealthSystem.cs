@@ -5,10 +5,10 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
 
-    public int maxHealth;
+    public float maxHealth;
 
-    private int m_Health;
-    public int currentHealth
+    private float m_Health;
+    public float currentHealth
     {
         get { return m_Health; }
         set 

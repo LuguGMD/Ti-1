@@ -9,8 +9,8 @@ public class UIManager : MonoBehaviour
 
     public static UIManager main;
 
-    public TextMeshProUGUI lifeText;
     public TextMeshProUGUI pointsText;
+    public Image lifeBar;
     public Image winPanel;
     public Image losePanel;
     public Image pausePanel;
@@ -55,9 +55,9 @@ public class UIManager : MonoBehaviour
         Actions.resume -= ResumeState;
     }
 
-    public void UpdateLifeText(int life)
+    public void UpdateLifeText(float perc)
     {
-        lifeText.text = "Life: " + life.ToString();
+        lifeBar.rectTransform.localScale = new Vector3(perc, 1, 1);
     }
 
     public void WinState()

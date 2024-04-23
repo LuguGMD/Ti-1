@@ -83,8 +83,11 @@ public class PlayerController : MonoBehaviour
             //Destroying heal object
             Destroy(other.gameObject);
 
+
+            float perc = healthSystem.currentHealth / healthSystem.maxHealth;
+
             //Updating UIManager's life text
-            UIManager.main.UpdateLifeText(healthSystem.currentHealth);
+            UIManager.main.UpdateLifeText(perc);
 
         }
     }
@@ -140,8 +143,10 @@ public class PlayerController : MonoBehaviour
         //Taking the damage
         bool dead = healthSystem.TakeDamage(damage);
 
+        float perc = healthSystem.currentHealth / healthSystem.maxHealth;
+
         //Updating UIManager's life text
-        UIManager.main.UpdateLifeText(healthSystem.currentHealth);
+        UIManager.main.UpdateLifeText(perc);
 
         //Checking if player is dead
         if(dead)

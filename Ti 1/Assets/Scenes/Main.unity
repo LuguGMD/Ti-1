@@ -7096,6 +7096,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 459910606826438777, guid: 19bda033edbb6a44093c6d765512c24b, type: 3}
+      propertyPath: lifeBar
+      value: 
+      objectReference: {fileID: 777734105}
+    - target: {fileID: 459910606826438777, guid: 19bda033edbb6a44093c6d765512c24b, type: 3}
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 0}
