@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -33,7 +34,8 @@ public class WaveManager : MonoBehaviour
     {
         Front,
         Left,
-        Right
+        Right,
+        RandomDir
     }
 
     private void OnEnable()
@@ -79,12 +81,12 @@ public class WaveManager : MonoBehaviour
         enemyCount++;
     }
 
-    private Vector3 GetPos(SpawnPositions spawnEnum, SpawnDirections spawnDir)
+    private Vector3 GetPos(SpawnPositions spawnEnum, SpawnDirections spawnDir, int ind)
     {
         //Getting the boundary in the x axis
         float dir = PlayerController.main.xBoundary;
-        
-        switch(spawnEnum)
+
+        switch (spawnEnum)
         {
             case SpawnPositions.Left:
                 dir *= -1;
@@ -114,7 +116,14 @@ public class WaveManager : MonoBehaviour
                       CameraController.main.transform.right * dir +
                       CameraController.main.transform.position;
 
-        switch(spawnDir)
+
+        if (spawnDir == SpawnDirections.RandomDir)
+        {
+            spawnDir = (SpawnDirections)ind;
+        }
+
+
+        switch (spawnDir)
         {
             case SpawnDirections.Left:
                 pos = CameraController.main.transform.forward * dir +
@@ -137,9 +146,14 @@ public class WaveManager : MonoBehaviour
         return pos;
     }
 
-    private Quaternion GetAng(SpawnDirections spawnDir)
+    private Quaternion GetAng(SpawnDirections spawnDir, int ind)
     {
         Quaternion dir = CameraController.main.transform.rotation;
+
+        if(spawnDir == SpawnDirections.RandomDir)
+        {
+            spawnDir = (SpawnDirections)ind;
+        }
 
         switch(spawnDir)
         {
@@ -175,9 +189,21 @@ public class WaveManager : MonoBehaviour
                 //Running through all enemies to spawn
                 for (int i = 0; i < round.enemies.Count; i++)
                 {
+
+                    int ind = 0;
+                    SpawnDirections enemyDir = round.enemies[i].spawnDirection;
+
+                    //Looking if the enemy has a random position to spáwn
+                    if (enemyDir == SpawnDirections.RandomDir)
+                    {
+                        string[] names = Enum.GetNames(enemyDir.GetType());
+                        ind = UnityEngine.Random.Range(0, names.Length - 1);
+                    }
+
+
                     //Getting the enenmy spawn position
-                    Vector3 spawnPos = GetPos(round.enemies[i].spawnPosition, round.enemies[i].spawnDirection); ;
-                    Quaternion spawnDir = GetAng(round.enemies[i].spawnDirection);
+                    Vector3 spawnPos = GetPos(round.enemies[i].spawnPosition, enemyDir, ind); ;
+                    Quaternion spawnDir = GetAng(enemyDir, ind);
 
                     SpawnEnemy(round.enemies[i].instance, spawnPos, spawnDir);
                 }
