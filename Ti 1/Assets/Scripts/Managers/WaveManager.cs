@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -28,16 +29,11 @@ public class WaveManager : MonoBehaviour
         RandomPos
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public enum SpawnDirections
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Front,
+        Left,
+        Right
     }
 
     private void OnEnable()
@@ -74,16 +70,16 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(RunWave());
     }
 
-    public void SpawnEnemy(GameObject enemyPrefab, Vector3 enemySpawn)
+    public void SpawnEnemy(GameObject enemyPrefab, Vector3 enemySpawn, Quaternion spawnDir)
     { 
         //Instantiating the enemy
-        GameObject enemyInstance = Instantiate(enemyPrefab, enemySpawn, CameraController.main.transform.rotation);
+        GameObject enemyInstance = Instantiate(enemyPrefab, enemySpawn, spawnDir);
         enemyInstance.transform.Rotate(Vector3.up * 180);
 
         enemyCount++;
     }
 
-    private Vector3 GetPos(SpawnPositions spawnEnum)
+    private Vector3 GetPos(SpawnPositions spawnEnum, SpawnDirections spawnDir)
     {
         //Getting the boundary in the x axis
         float dir = PlayerController.main.xBoundary;
@@ -118,7 +114,48 @@ public class WaveManager : MonoBehaviour
                       CameraController.main.transform.right * dir +
                       CameraController.main.transform.position;
 
+        switch(spawnDir)
+        {
+            case SpawnDirections.Left:
+                pos = CameraController.main.transform.forward * dir +
+                      CameraController.main.transform.right * -zOffset  +
+                      CameraController.main.transform.position;
+                break;
+            case SpawnDirections.Right:
+                pos = CameraController.main.transform.forward * dir +
+                      CameraController.main.transform.right * zOffset +
+                      CameraController.main.transform.position;
+                break;
+            case SpawnDirections.Front:
+                pos = CameraController.main.transform.forward * zOffset +
+                      CameraController.main.transform.right * dir +
+                      CameraController.main.transform.position;
+                break;
+        }
+
+
         return pos;
+    }
+
+    private Quaternion GetAng(SpawnDirections spawnDir)
+    {
+        Quaternion dir = CameraController.main.transform.rotation;
+
+        switch(spawnDir)
+        {
+            case SpawnDirections.Left:
+                dir.eulerAngles = new Vector3(dir.x, dir.y - 90, dir.z);
+                break;
+            case SpawnDirections.Right:
+                dir.eulerAngles = new Vector3(dir.x, dir.y + 90, dir.z);
+                break;
+            case SpawnDirections.Front:
+                dir.eulerAngles = new Vector3(dir.x, dir.y, dir.z);
+                break;
+
+        }
+
+        return dir;
     }
 
     IEnumerator RunWave()
@@ -139,9 +176,10 @@ public class WaveManager : MonoBehaviour
                 for (int i = 0; i < round.enemies.Count; i++)
                 {
                     //Getting the enenmy spawn position
-                    Vector3 spawnPos = GetPos(round.enemies[i].spawnPosition); ;
+                    Vector3 spawnPos = GetPos(round.enemies[i].spawnPosition, round.enemies[i].spawnDirection); ;
+                    Quaternion spawnDir = GetAng(round.enemies[i].spawnDirection);
 
-                    SpawnEnemy(round.enemies[i].instance, spawnPos);
+                    SpawnEnemy(round.enemies[i].instance, spawnPos, spawnDir);
                 }
 
                 //Waiting for round to be cleared
@@ -177,6 +215,7 @@ public class WaveManager : MonoBehaviour
     {
         public GameObject instance;
         public SpawnPositions spawnPosition;
+        public SpawnDirections spawnDirection;
     }
     #endregion
 }
