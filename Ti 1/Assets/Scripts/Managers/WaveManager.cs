@@ -158,13 +158,13 @@ public class WaveManager : MonoBehaviour
         switch(spawnDir)
         {
             case SpawnDirections.Left:
-                dir.eulerAngles = new Vector3(dir.x, dir.y - 90, dir.z);
+                dir.eulerAngles += new Vector3(dir.x, dir.y - 90, dir.z);
                 break;
             case SpawnDirections.Right:
-                dir.eulerAngles = new Vector3(dir.x, dir.y + 90, dir.z);
+                dir.eulerAngles += new Vector3(dir.x, dir.y + 90, dir.z);
                 break;
             case SpawnDirections.Front:
-                dir.eulerAngles = new Vector3(dir.x, dir.y, dir.z);
+                dir.eulerAngles += new Vector3(dir.x, dir.y, dir.z);
                 break;
 
         }

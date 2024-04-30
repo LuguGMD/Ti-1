@@ -1,14 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
+
+    public GameObject[] levels;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Running thorugh all the levels
+        for(int i = 0; i < levels.Length; i++)
+        {
+            //Looking if the level is unlocked
+            if(i < GameManager.main.currentLevel)
+            {
+                //Changing the level's color
+                levels[i].GetComponent<Image>().color = Color.white;
+                levels[i].GetComponent<Button>().enabled = true;
+            }
+            else
+            {
+                //Changing the level's color
+                levels[i].GetComponent<Image>().color = Color.black;
+                levels[i].GetComponent<Button>().enabled = false;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -17,10 +38,10 @@ public class MenuHandler : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void StartGame(int level)
     {
         //Loading the next Scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(level);
     }
 
     public void ExitGame()

@@ -91,6 +91,11 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     #endregion
 
     public void AddPoint(float pointsToAdd = 1)
