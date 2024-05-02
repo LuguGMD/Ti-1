@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 9087365774047671557}
   - component: {fileID: 7156557680946770039}
   m_Layer: 0
-  m_Name: Pencil
+  m_Name: Body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 443044951599413952}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.007032156, z: -0.0135138035}
+  m_LocalPosition: {x: 0, y: 1.13, z: -0.0135138035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -193,6 +193,24 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
+      time: 0.39698082
+      value: 0.1345836
+      inSlope: 7.771244
+      outSlope: 7.771244
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.025080461
+    - serializedVersion: 3
+      time: 0.62386435
+      value: 0.95676845
+      inSlope: 0.4879382
+      outSlope: 0.4879382
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15202679
+      outWeight: 0.09776362
+    - serializedVersion: 3
       time: 1
       value: 1
       inSlope: 0
@@ -208,7 +226,8 @@ MonoBehaviour:
   attackCurveValue: 0
   attackDuration: 3
   attackDelay: 1
-  minDist: 0
+  yOffset: 1.5
+  minDist: 0.2
 --- !u!1 &6073660777779414627
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,9 +238,9 @@ GameObject:
   m_Component:
   - component: {fileID: 410231639048467928}
   m_Layer: 0
-  m_Name: Anchor Point
+  m_Name: Pencil
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -233,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6073660777779414627}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.007032156, z: 0.0135138035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

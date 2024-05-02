@@ -2381,6 +2381,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39bb53892e65a5e4a86af6643e397bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1205626079
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.0393486
+      objectReference: {fileID: 0}
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29.045849
+      objectReference: {fileID: 0}
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410231639048467928, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6073660777779414627, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
+      propertyPath: m_Name
+      value: Pencil
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b27ae036c145cde42b1bbcb79a9d556c, type: 3}
 --- !u!1 &1220900990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,7 +2941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  moveSpeed: 10
+  moveSpeed: 0
   rotateSpeed: 0.2
   defaultDistance: 15
   cameraDistance: 15
@@ -4185,3 +4242,4 @@ SceneRoots:
   - {fileID: 927981945}
   - {fileID: 828353143}
   - {fileID: 668269112}
+  - {fileID: 1205626079}

@@ -16,6 +16,8 @@ public class Pencil : EnemyController
     [SerializeField] private float attackDuration;
     [SerializeField] private float attackDelay;
 
+    [SerializeField] private float yOffset = 3f;
+
     private float distAnchor;
 
     private GameObject player;
@@ -30,7 +32,8 @@ public class Pencil : EnemyController
     {
         Chase,
         Recharge,
-        Attack
+        Attack,
+        Wait
     }
 
     // Start is called before the first frame update
@@ -68,6 +71,9 @@ public class Pencil : EnemyController
                     Attack();
                     break; 
 
+                case PencilStates.Wait:
+
+                    break;
                 default:
                     currentState = PencilStates.Chase;    
                 break;
@@ -79,10 +85,12 @@ public class Pencil : EnemyController
 
     void Chase()
     {
-        //Getting the distance between enemy and player
-        playerDist = (anchorPoint.transform.position - player.transform.position).magnitude;
+        Vector3 playerPos = new Vector3(player.transform.position.x, anchorPoint.transform.position.y, player.transform.position.z);
 
-        Vector3 dir = (anchorPoint.transform.position - player.transform.position).normalized;
+        //Getting the distance between enemy and player
+        playerDist = (anchorPoint.transform.position - playerPos).magnitude;
+
+        Vector3 dir = (playerPos - anchorPoint.transform.position).normalized;
 
         //Moving towards player
         anchorPoint.transform.position += dir * speed * Time.deltaTime;
@@ -90,11 +98,35 @@ public class Pencil : EnemyController
         //Checking if enemy is near enough
         if (playerDist <= minDist)
         {
-            currentState = PencilStates.Attack;
+            StartCoroutine(ChangeState(PencilStates.Attack));
         }
     }
     void Recharge()
     {
+
+        //Decrease the timer
+        attackTime -= attackDelay * Time.deltaTime;
+
+        //Clamping the attack time
+        attackTime = Mathf.Clamp(attackTime, 0, attackDelay);
+
+        //Evaluating the curve
+        attackCurveValue = attackTime / attackDelay;
+
+        //Getting the offset to move from to the anchor point
+        float yDist = yOffset * attackCurveValue + distAnchor - distAnchor * attackCurveValue;
+
+        //Moving the pencil
+        transform.position = new Vector3(anchorPoint.transform.position.x, yDist, anchorPoint.transform.position.z);
+
+        //Checking if enough time passed
+        if (attackTime <= 0)
+        {
+            //Reseting the timer
+            attackTime = 0;
+            //Changing state
+            StartCoroutine(ChangeState(PencilStates.Chase));
+        }
 
     }
     void Attack()
@@ -107,7 +139,7 @@ public class Pencil : EnemyController
         }
 
         //Increasing the timer
-        attackTime += attackSpeed * Time.deltaTime * 60;
+        attackTime += attackSpeed * Time.deltaTime;
 
         //Clamping the attack time
         attackTime = Mathf.Clamp(attackTime, 0, attackDuration);
@@ -116,7 +148,7 @@ public class Pencil : EnemyController
         attackCurveValue = attackCurve.Evaluate(attackTime/attackDuration);
 
         //Getting the offset to move from to the anchor point
-        float yDist = anchorPoint.transform.position.y - distAnchor * attackCurveValue;
+        float yDist = yOffset * attackCurveValue + distAnchor - distAnchor * attackCurveValue;
 
         //Moving the pencil
         transform.position = new Vector3(anchorPoint.transform.position.x, yDist,anchorPoint.transform.position.z);
@@ -125,10 +157,19 @@ public class Pencil : EnemyController
         //Checking if the target is there
         if(attackTime/attackDuration == 1)
         {
-            attackTime = 0;
-            currentState = PencilStates.Recharge;
+            //Changing the timer to the delay
+            attackTime = attackDelay;
+            //Changing the state
+            StartCoroutine(ChangeState(PencilStates.Recharge, attackDelay));
         }
 
+    }
+
+    IEnumerator ChangeState(PencilStates state, float wait = 0f)
+    {
+        currentState = PencilStates.Wait;
+        yield return new WaitForSeconds(wait);
+        currentState = state;
     }
 
 }
