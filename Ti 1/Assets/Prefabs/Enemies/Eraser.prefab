@@ -124,8 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: b8fae293b21a4e345aa56247ea2e4afa, type: 2}
   damage: 1
-  sinSpeed: 2
-  sinLength: 40
+  sinSpeed: 12
+  sinLength: 20
   speedCurve:
     serializedVersion: 2
     m_Curve:
@@ -141,8 +141,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
