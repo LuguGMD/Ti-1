@@ -737,8 +737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.833, y: 0}
-  m_SizeDelta: {x: 193.33333, y: 51.333332}
+  m_AnchoredPosition: {x: 14.833008, y: 0}
+  m_SizeDelta: {x: 193.33331, y: 51.333332}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &389568624
 MonoBehaviour:
@@ -2304,7 +2304,7 @@ PrefabInstance:
     - target: {fileID: 459910606826438777, guid: 19bda033edbb6a44093c6d765512c24b, type: 3}
       propertyPath: lifeBar
       value: 
-      objectReference: {fileID: 389568624}
+      objectReference: {fileID: 196865973}
     - target: {fileID: 459910606826438777, guid: 19bda033edbb6a44093c6d765512c24b, type: 3}
       propertyPath: winPanel
       value: 
