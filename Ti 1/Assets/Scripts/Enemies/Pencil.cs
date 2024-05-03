@@ -83,6 +83,37 @@ public class Pencil : EnemyController
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        //Checking if it's at the same spot as another Enemy
+        if(other.CompareTag("Enemy"))
+        {
+            switch(currentState)
+            {
+                case PencilStates.Chase:
+                    //Getting the direction to move away from the other enemy
+                    Vector3 dir = (transform.position - other.transform.position).normalized;
+
+                    //Locking y movement
+                    dir.y = 0;
+
+                    //Checking if they are at the same position
+                    if(dir == Vector3.zero)
+                    {
+                        dir += Vector3.right * Random.Range(-1f, 1f) + Vector3.forward * Random.Range(-1f,1f);
+                    }
+
+                    //Adding an opposite force
+                    anchorPoint.transform.position += dir * Time.deltaTime * 2;
+                    break;
+                default:
+
+                    break;
+            }
+            
+        }
+    }
+
     void Chase()
     {
         Vector3 playerPos = new Vector3(player.transform.position.x, anchorPoint.transform.position.y, player.transform.position.z);
