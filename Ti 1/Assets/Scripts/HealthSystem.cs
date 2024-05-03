@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class HealthSystem : MonoBehaviour
 
     public bool TakeDamage(int damage)
     {
+        //ANIMATING
+        transform.DOScale(0.8f, 0.1f).OnComplete(ReturnScale);
+
         //Taking the damage
         currentHealth -= damage;
 
@@ -42,8 +46,16 @@ public class HealthSystem : MonoBehaviour
         return isDead;
     }
 
+    private void ReturnScale()
+    {
+        transform.DOScale(1f, 0.1f);
+    }
+
     public void Heal(int healing)
     {
+        //ANIMATING
+        transform.DOScale(1.2f, 0.1f).OnComplete(ReturnScale);
+
         //Healing
         currentHealth += healing;
 
