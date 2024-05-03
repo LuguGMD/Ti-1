@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Shooter : MonoBehaviour
 {
     //Holds the available bullets to shoot
     public List<BulletScriptable> bulletsList = new List<BulletScriptable>();
+
+    [SerializeField] private GameObject bulletPos;
 
     //The index of the slected bullet
     int m_bulletIndex = 0;
@@ -32,6 +35,11 @@ public class Shooter : MonoBehaviour
 
     private void Start()
     {
+        if(bulletPos == null)
+        {
+            bulletPos = gameObject;
+        }
+
         //Going through all bullets
        for(int i = 0; i < bulletsList.Count; i++)
         {
@@ -45,8 +53,12 @@ public class Shooter : MonoBehaviour
         //Checking if selected bullet can shoot
         if (bullet.canShoot)
         {
+
+            //ANIMATING
+            transform.DOScale(0.9f, 0.1f).OnComplete(ReturnScale).From(1f);
+
             //Instantiating bullet
-            GameObject bulletInstance = Instantiate(bullet.bulletPrefab, transform.position, transform.rotation);
+            GameObject bulletInstance = Instantiate(bullet.bulletPrefab, bulletPos.transform.position, transform.rotation);
             //Passing the values of the bullet type to the bullet
             bulletInstance.GetComponent<Bullet>().bulletStats = bullet;
 
@@ -57,6 +69,12 @@ public class Shooter : MonoBehaviour
             StartCoroutine(Recharge());
 
         }
+    }
+
+    private void ReturnScale()
+    {
+        //ANIMATING
+        transform.DOScale(1f, 0.1f);
     }
 
     IEnumerator Recharge()

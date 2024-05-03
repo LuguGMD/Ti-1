@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
 
@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
         {
             main = this;
             DontDestroyOnLoad(gameObject);
+
+            DOTween.Init(false, true, LogBehaviour.Default).SetCapacity(100, 20);
         }
         else
         {

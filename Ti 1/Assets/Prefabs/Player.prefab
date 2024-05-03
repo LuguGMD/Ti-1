@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7335662202941199889}
-  - component: {fileID: 8094852526279899835}
   m_Layer: 0
   m_Name: ShootPoint
   m_TagString: Untagged
@@ -32,19 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2303930771812552833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8094852526279899835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2960581532866342401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c7a68b86cd5c449b0bc6f41865b3ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletsList: []
 --- !u!1 &5490518100982496485
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,6 +46,7 @@ GameObject:
   - component: {fileID: -5280757736096411282}
   - component: {fileID: 4679488522096127921}
   - component: {fileID: 374230810077023424}
+  - component: {fileID: 9163220193349758156}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -212,3 +199,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   isDead: 0
+--- !u!114 &9163220193349758156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490518100982496485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c7a68b86cd5c449b0bc6f41865b3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletsList: []
+  bulletPos: {fileID: 2960581532866342401}

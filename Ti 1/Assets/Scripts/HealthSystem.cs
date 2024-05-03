@@ -29,9 +29,6 @@ public class HealthSystem : MonoBehaviour
 
     public bool TakeDamage(int damage)
     {
-        //ANIMATING
-        transform.DOScale(0.8f, 0.1f).OnComplete(ReturnScale);
-
         //Taking the damage
         currentHealth -= damage;
 
@@ -40,6 +37,12 @@ public class HealthSystem : MonoBehaviour
         {
             isDead = true;
             currentHealth = 0;
+        }
+        else
+        {
+            //ANIMATING
+            transform.DOScaleX(1.2f, 0.1f).OnComplete(ReturnScale);
+            transform.DOScaleY(0.8f, 0.1f);
         }
 
         //Returning if it's dead

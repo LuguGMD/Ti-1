@@ -566,6 +566,22 @@ PrefabInstance:
       propertyPath: bulletsList.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: d74f0369cf902944597acadbae8dad7b, type: 2}
+    - target: {fileID: 9163220193349758156, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
+      propertyPath: bulletsList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163220193349758156, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
+      propertyPath: bulletsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 08ece60e5e4e68748991621d98deed7b, type: 2}
+    - target: {fileID: 9163220193349758156, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
+      propertyPath: bulletsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: d74f0369cf902944597acadbae8dad7b, type: 2}
+    - target: {fileID: 9163220193349758156, guid: 0d0aef3ffccbafc489f9400177d75427, type: 3}
+      propertyPath: bulletsList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 505cfa62e7fcb5f4087092ff25d659fb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

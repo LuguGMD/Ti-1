@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour
         //Getting the camera controller position
         pivot = CameraController.main.transform;
         //Getting the shooter component
-        shooter = GetComponentInChildren<Shooter>();
+        shooter = GetComponent<Shooter>();
         //Getting the health system component
         healthSystem = GetComponent<HealthSystem>();
     }
@@ -122,6 +123,7 @@ public class PlayerController : MonoBehaviour
 
     void Shooting()
     {
+
         //Getting the shooting input
         if (Input.GetKey(KeyCode.Space))
         {
@@ -133,9 +135,25 @@ public class PlayerController : MonoBehaviour
         int E = Input.GetKeyDown(KeyCode.E) ? 0 : 1;
 
         //Changing the index of the shooter
-        if (Q - E != 0) shooter.bulletIndex += Q - E;
+        if (Q - E != 0)
+        {
+            //CHANGE COLOR FROM CONTAINER
+            //ANIMATING
+            transform.DOScale(0.8f, 0.1f).OnComplete(ReturnScaleEase).From(1f);
+            shooter.bulletIndex += Q - E;
+        }
 
     }
+
+    void ReturnScaleEase()
+    {
+        transform.DOScale(1f, 1f).SetEase(Ease.OutElastic).From(0.8f);
+    }
+    void ReturnScale()
+    {
+        transform.DOScale(1f, 0.1f);
+    }
+
     #endregion
 
     void TakeDamage(int damage)
