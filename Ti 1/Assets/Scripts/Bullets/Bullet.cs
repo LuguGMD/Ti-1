@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private float speed;
     public int damage;
 
-    //private Color color;
+    private Color color;
 
     private HealthSystem hs;
 
@@ -38,6 +38,7 @@ public class Bullet : MonoBehaviour
         //Checking it the bullet is dead
         if(hs.isDead)
         {
+            psPaint.startColor = color;
             //Creating the paint particle system at the bullet
             Instantiate(psPaint, transform.position, transform.rotation);
             //Destroying self
@@ -50,7 +51,7 @@ public class Bullet : MonoBehaviour
         //Changing stats
         speed = bulletStats.speed;
         damage = bulletStats.damage;
-        //color = bulletStats.color;
+        color = bulletStats.color;
 
         //Changing Mesh
         GetComponent<MeshFilter>().mesh = bulletStats.mesh;

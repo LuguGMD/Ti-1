@@ -11,7 +11,7 @@ public class BulletScriptable : ScriptableObject
     public GameObject bulletPrefab;
     public Mesh mesh;
     public string tag;
-    //public Color color;
+    public Color color;
 
     [Header("Shooting")]
     public int maxAmmo;
@@ -28,7 +28,7 @@ public class BulletScriptable : ScriptableObject
         this.bulletPrefab = other.bulletPrefab;
         this.mesh = other.mesh;
         this.tag = other.tag;
-        //this.color = other.color;
+        this.color = other.color;
 
         this.maxAmmo = other.maxAmmo;
         this.currentAmmo = other.currentAmmo;
