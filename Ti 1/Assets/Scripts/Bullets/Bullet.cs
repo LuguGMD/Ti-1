@@ -10,7 +10,11 @@ public class Bullet : MonoBehaviour
     private float speed;
     public int damage;
 
+    //private Color color;
+
     private HealthSystem hs;
+
+    [SerializeField] private ParticleSystem psPaint;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +24,6 @@ public class Bullet : MonoBehaviour
 
         hs = GetComponent<HealthSystem>();
         StartStats();
-
-        Input.GetMouseButtonDown(0);
     }
 
     
@@ -36,6 +38,8 @@ public class Bullet : MonoBehaviour
         //Checking it the bullet is dead
         if(hs.isDead)
         {
+            //Creating the paint particle system at the bullet
+            Instantiate(psPaint, transform.position, transform.rotation);
             //Destroying self
             Destroy(gameObject);
         }
@@ -46,6 +50,7 @@ public class Bullet : MonoBehaviour
         //Changing stats
         speed = bulletStats.speed;
         damage = bulletStats.damage;
+        //color = bulletStats.color;
 
         //Changing Mesh
         GetComponent<MeshFilter>().mesh = bulletStats.mesh;

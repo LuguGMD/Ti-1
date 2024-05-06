@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletStats: {fileID: 0}
   damage: 0
+  psPaint: {fileID: 3561886987273407745, guid: 4a3396382382d7246b67776708456695, type: 3}
 --- !u!114 &8852165140753960861
 MonoBehaviour:
   m_ObjectHideFlags: 0

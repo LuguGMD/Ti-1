@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         else if(other.CompareTag("BulletEnemy"))
         {
             TakeDamage(other.GetComponent<Bullet>().damage);
-            Destroy(other.gameObject);
+            other.GetComponent<HealthSystem>().TakeDamage(1);
         }
         else if(other.CompareTag("Heal"))
         {
