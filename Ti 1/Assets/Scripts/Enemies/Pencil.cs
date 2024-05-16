@@ -188,6 +188,9 @@ public class Pencil : EnemyController
         //Checking if the target is there
         if(attackTime/attackDuration == 1)
         {
+            //Playing impact sound
+            AudioManager.main.Wood();
+
             //Changing the timer to the delay
             attackTime = attackDelay;
             //Changing the state

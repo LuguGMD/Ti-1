@@ -62,6 +62,9 @@ public class Shooter : MonoBehaviour
             //Passing the values of the bullet type to the bullet
             bulletInstance.GetComponent<Bullet>().bulletStats = bullet;
 
+            //Playing Sound
+            AudioManager.main.Shoot();
+
             //Reducing ammo from the bullet
             bullet.currentAmmo--;
             //Disabling shooting
