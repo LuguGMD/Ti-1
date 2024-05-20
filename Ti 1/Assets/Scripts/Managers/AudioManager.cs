@@ -1,15 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
 
     public static AudioManager main;
 
-    private AudioSource audioSource;
-    public AudioClip shootSFX;
-    public AudioClip impactWoodSFX;
+    [SerializeField] private AudioSource audioBG;
+    [SerializeField] private AudioSource audioSFX;
+
+    [SerializeField] private AudioMixer audioMixer;
+
+    [SerializeField] AudioClip[] bgList;
+    [SerializeField] AudioClip[] sfxList;
+
+    public enum AudiosBG
+    {
+        
+    }
+
+    public enum AudiosSFX
+    {
+        shoot,
+        impact,
+        hit
+    }
 
     private void Awake()
     {
@@ -24,40 +41,26 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void PlaySFX(int id, bool pitch = false)
     {
-        audioSource = GetComponent<AudioSource>();
+        if(pitch)
+        {
+            //Making pitch random
+            audioMixer.SetFloat("pitch", Random.Range(0.8f, 1.2f));
+        }
+        else
+        {
+            //Making pitch normal
+            audioMixer.SetFloat("pitch", 1f);
+        }
+
+        audioSFX.PlayOneShot(sfxList[id]);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeMusic(int id)
     {
-        
+        audioBG.clip = bgList[id];
     }
 
-    public void Shoot()
-    {
-        audioSource.clip = shootSFX;
-        PlayRandom();
-    }
-
-    public void Wood()
-    {
-        audioSource.clip = impactWoodSFX;
-        PlayRandom();
-    }
-
-    private void PlayRandom()
-    {
-        //Randomizing SFX Pitch
-        audioSource.pitch = Random.Range(0.8f, 1.2f);
-        audioSource.Play();
-    }
-
-    private void PlayNormal()
-    {
-        audioSource.Play();
-    }
 
 }

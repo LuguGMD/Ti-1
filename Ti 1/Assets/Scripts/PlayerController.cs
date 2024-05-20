@@ -166,6 +166,9 @@ public class PlayerController : MonoBehaviour
         //Updating UIManager's life text
         UIManager.main.UpdateLifeText(perc);
 
+        //Playing hit sound
+        AudioManager.main.PlaySFX((int)AudioManager.AudiosSFX.hit);
+
         //Checking if player is dead
         if(dead)
         {

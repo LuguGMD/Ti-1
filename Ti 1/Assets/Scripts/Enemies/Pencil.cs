@@ -189,7 +189,7 @@ public class Pencil : EnemyController
         if(attackTime/attackDuration == 1)
         {
             //Playing impact sound
-            AudioManager.main.Wood();
+            AudioManager.main.PlaySFX((int)AudioManager.AudiosSFX.impact, true);
 
             //Changing the timer to the delay
             attackTime = attackDelay;

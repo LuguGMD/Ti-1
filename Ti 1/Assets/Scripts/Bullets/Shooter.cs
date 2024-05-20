@@ -63,7 +63,7 @@ public class Shooter : MonoBehaviour
             bulletInstance.GetComponent<Bullet>().bulletStats = bullet;
 
             //Playing Sound
-            AudioManager.main.Shoot();
+            AudioManager.main.PlaySFX((int)AudioManager.AudiosSFX.shoot, true);
 
             //Reducing ammo from the bullet
             bullet.currentAmmo--;
