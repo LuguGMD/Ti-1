@@ -20,7 +20,7 @@ public class Eraser : EnemyController
         //Getting the start position
         startPosition = transform.position;
 
-        //Destroy(gameObject, 5f);
+        Destroy(gameObject, 10f);
     }
 
     // Update is called once per frame

@@ -17,7 +17,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2792341256585668953, guid: ff5f4b78003c4f7499328fd074af00cf, type: 3}
   mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   tag: BulletPlayer
-  color: {r: 0.04401779, g: 1, b: 0, a: 0}
+  color: {r: 0.04401779, g: 1, b: 0, a: 1}
   maxAmmo: 12
   currentAmmo: 0
   rechargeCooldown: 1

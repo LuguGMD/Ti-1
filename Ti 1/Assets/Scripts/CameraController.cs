@@ -158,4 +158,9 @@ public class CameraController : MonoBehaviour
 
     #endregion
 
+    public void ChangeSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
 }
