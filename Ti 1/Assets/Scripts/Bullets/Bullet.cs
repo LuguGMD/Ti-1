@@ -7,17 +7,17 @@ public class Bullet : MonoBehaviour
 
     public BulletScriptable bulletStats;
 
-    private float speed;
+    protected float speed;
     public int damage;
 
-    private Color color;
+    protected Color color;
 
-    private HealthSystem hs;
+    protected HealthSystem hs;
 
     [SerializeField] private ParticleSystem psPaint;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         //Destroying self after 3 seconds
         Destroy(gameObject, 3f);
@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
     
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (Manager.main.isGameRunning)
         {
@@ -46,15 +46,17 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void StartStats()
+    public void StartStats()
     {
         //Changing stats
         speed = bulletStats.speed;
         damage = bulletStats.damage;
         color = bulletStats.color;
 
-        //Changing Mesh
-        GetComponent<MeshFilter>().mesh = bulletStats.mesh;
+        //Changing material
+        var materialsCopy = GetComponent<MeshRenderer>().materials;
+        materialsCopy[0] = bulletStats.material;
+        GetComponent<MeshRenderer>().materials = materialsCopy;
 
         //Changing tag
         tag = bulletStats.tag;

@@ -9,9 +9,9 @@ public class BulletScriptable : ScriptableObject
     public float speed;
     public int damage;
     public GameObject bulletPrefab;
-    public Mesh mesh;
     public string tag;
     public Color color;
+    public Material material;
 
     [Header("Shooting")]
     public int maxAmmo;
@@ -26,9 +26,9 @@ public class BulletScriptable : ScriptableObject
         this.speed = other.speed;
         this.damage = other.damage;
         this.bulletPrefab = other.bulletPrefab;
-        this.mesh = other.mesh;
         this.tag = other.tag;
         this.color = other.color;
+        this.material = other.material;
 
         this.maxAmmo = other.maxAmmo;
         this.currentAmmo = other.currentAmmo;

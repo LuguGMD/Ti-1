@@ -15,9 +15,9 @@ MonoBehaviour:
   speed: 20
   damage: 1
   bulletPrefab: {fileID: 2792341256585668953, guid: ff5f4b78003c4f7499328fd074af00cf, type: 3}
-  mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   tag: BulletEnemy
   color: {r: 1, g: 0, b: 0, a: 1}
+  material: {fileID: 2100000, guid: 8df117a8d454a7e418e1d72ea05d736e, type: 2}
   maxAmmo: 3
   currentAmmo: 3
   rechargeCooldown: 1
