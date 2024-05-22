@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Eraser
   m_EditorClassIdentifier: 
   life: 3
-  speed: 6
+  speed: 10
   bulletType: {fileID: 0}
   points: 50
   dropPrefabs:

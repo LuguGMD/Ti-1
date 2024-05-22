@@ -5,7 +5,6 @@ using UnityEngine;
 public class Eraser : EnemyController
 {
 
-    private Vector3 startPosition;
     private float sinCounter = 0f;
 
     [SerializeField] private float sinSpeed;
@@ -16,9 +15,6 @@ public class Eraser : EnemyController
     public override void Start()
     {
         base.Start();
-
-        //Getting the start position
-        startPosition = transform.position;
 
         Destroy(gameObject, 10f);
     }
