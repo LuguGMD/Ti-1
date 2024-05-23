@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     protected Color color;
 
-    protected HealthSystem hs;
+    public HealthSystem hs;
 
     [SerializeField] protected ParticleSystem psPaint;
 
