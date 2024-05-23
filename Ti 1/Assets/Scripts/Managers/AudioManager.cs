@@ -8,10 +8,10 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager main;
 
-    [SerializeField] private AudioSource audioBG;
-    [SerializeField] private AudioSource audioSFX;
+    public AudioSource audioBG;
+    public AudioSource audioSFX;
 
-    [SerializeField] private AudioMixer audioMixer;
+    public AudioMixer audioMixer;
 
     [SerializeField] AudioClip[] bgList;
     [SerializeField] AudioClip[] sfxList;

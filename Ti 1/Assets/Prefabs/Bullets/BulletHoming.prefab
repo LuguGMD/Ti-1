@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 406137104437666880}
   - component: {fileID: 6153593933746073792}
   - component: {fileID: 8269446663809744145}
-  - component: {fileID: 3634127278256461163}
+  - component: {fileID: 1234875492331409230}
   - component: {fileID: 8852165140753960861}
   - component: {fileID: 8057055734365088962}
   m_Layer: 0
@@ -86,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3634127278256461163
+--- !u!114 &1234875492331409230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2792341256585668953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e66728a97cc1e409b4027d7ab7e023, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a11fa28def92ab48a45355017faa1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletStats: {fileID: 0}
@@ -134,5 +134,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.3954964, y: 3.642931, z: 1}
+  m_Center: {x: 0.080480576, y: 0.21159649, z: 0}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerHoming
   m_EditorClassIdentifier: 
   speed: 25
-  damage: 2
-  bulletPrefab: {fileID: 2792341256585668953, guid: ff5f4b78003c4f7499328fd074af00cf, type: 3}
+  damage: 1
+  bulletPrefab: {fileID: 2792341256585668953, guid: 955dc436953854d4fb71c9d130b003fe, type: 3}
   tag: BulletPlayer
   color: {r: 0.04401779, g: 1, b: 0, a: 1}
   material: {fileID: 2100000, guid: 2e054fc538cb6eb4da30f5a96af53e81, type: 2}

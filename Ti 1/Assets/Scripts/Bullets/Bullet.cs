@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     protected HealthSystem hs;
 
-    [SerializeField] private ParticleSystem psPaint;
+    [SerializeField] protected ParticleSystem psPaint;
 
     // Start is called before the first frame update
     protected virtual void Start()

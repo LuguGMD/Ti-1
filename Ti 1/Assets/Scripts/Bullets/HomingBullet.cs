@@ -13,16 +13,42 @@ public class HomingBullet : Bullet
 
     protected override void Update()
     {
-        base.Update();
-
-        if (hasTarget )
+        if (Manager.main.isGameRunning)
         {
+            
+            if (hasTarget)
+            {
+                if (target != null)
+                {
 
+                    //Getting the direction towards the enemy
+                    Vector3 dir = (target.transform.position - transform.position).normalized;
+
+                    transform.position += speed / 1.2f * dir * Time.deltaTime;
+                }
+                else
+                {
+                    hasTarget = false;
+                    FindTarget();
+                }
+            }
+            else
+            {
+                //Trying to find a target
+                FindTarget();
+                transform.position += transform.forward * speed * Time.deltaTime;
+            }
         }
-        else
+
+
+        //Checking it the bullet is dead
+        if (hs.isDead)
         {
-            //Trying to find a target
-            FindTarget();
+            psPaint.startColor = color;
+            //Creating the paint particle system at the bullet
+            Instantiate(psPaint, transform.position, transform.rotation);
+            //Destroying self
+            Destroy(gameObject);
         }
 
     }
@@ -49,6 +75,8 @@ public class HomingBullet : Bullet
             }
 
         }
+
+        if(target != null) hasTarget = true;
 
     }
 
