@@ -13,21 +13,25 @@ public class MenuHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Running thorugh all the levels
-        for(int i = 0; i < levels.Length; i++)
+        //Checking if there are levels to be managed
+        if (levels[0] != null)
         {
-            //Looking if the level is unlocked
-            if(i < GameManager.main.currentLevel)
+            //Running thorugh all the levels
+            for (int i = 0; i < levels.Length; i++)
             {
-                //Changing the level's color
-                levels[i].GetComponent<Image>().color = Color.white;
-                levels[i].GetComponent<Button>().enabled = true;
-            }
-            else
-            {
-                //Changing the level's color
-                levels[i].GetComponent<Image>().color = Color.black;
-                levels[i].GetComponent<Button>().enabled = false;
+                //Looking if the level is unlocked
+                if (i < GameManager.main.currentLevel)
+                {
+                    //Changing the level's color
+                    levels[i].GetComponent<Image>().color = Color.white;
+                    levels[i].GetComponent<Button>().enabled = true;
+                }
+                else
+                {
+                    //Changing the level's color
+                    levels[i].GetComponent<Image>().color = Color.black;
+                    levels[i].GetComponent<Button>().enabled = false;
+                }
             }
         }
     }
