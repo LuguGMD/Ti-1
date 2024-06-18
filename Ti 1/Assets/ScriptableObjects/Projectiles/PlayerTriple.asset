@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 377b9f13a0411584e8b5211bfa71e992, type: 3}
-  m_Name: PlayerCharge
+  m_Name: PlayerTriple
   m_EditorClassIdentifier: 
-  speed: 30
-  damage: 3
-  bulletPrefab: {fileID: 2792341256585668953, guid: ff5f4b78003c4f7499328fd074af00cf, type: 3}
+  speed: 16
+  damage: 1
+  bulletPrefab: {fileID: 2792341256585668953, guid: f7c9eb10c8b1b1b44b6afe019326a12f, type: 3}
   tag: BulletPlayer
   color: {r: 1, g: 0, b: 0, a: 1}
   material: {fileID: 2100000, guid: 8df117a8d454a7e418e1d72ea05d736e, type: 2}
   maxAmmo: 12
   currentAmmo: 0
   rechargeCooldown: 1
-  shootCooldown: 2
+  shootCooldown: 0.5
   canShoot: 1
-  isCharge: 0
+  isCharge: 1
