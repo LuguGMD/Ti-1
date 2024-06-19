@@ -48,6 +48,12 @@ public class MenuHandler : MonoBehaviour
         SceneManager.LoadScene(level);
     }
 
+    public void NextLevel()
+    {
+        //Loading the next Level
+        SceneManager.LoadScene(GameManager.main.currentLevel);
+    }
+
     public void ExitGame()
     {
         #if UNITY_EDITOR

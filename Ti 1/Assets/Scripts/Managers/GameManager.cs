@@ -70,6 +70,10 @@ public class GameManager : MonoBehaviour
         {
             //Passing the current level
             currentLevel = levelPassed+1;
+
+            //Going to the cutscene scene
+            SceneManager.LoadScene(6);
+
         }
     }
 }
