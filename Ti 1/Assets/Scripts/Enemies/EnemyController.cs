@@ -42,12 +42,25 @@ public class EnemyController : MonoBehaviour
         {
             //Getting the projectile's bullet script
             Bullet bullet = other.GetComponent<Bullet>();
-            
-            //Making the bullet take damage
-            bullet.GetComponent<HealthSystem>().TakeDamage(damage);
+            //Stores if died
+            bool dead;
 
-            bool dead = hs.TakeDamage(bullet.damage);    
-            if(dead)
+            //Cheking if doesnt have bullet script
+            if (bullet == null)
+            {
+                TripleCopy tripleCopy = other.GetComponent<TripleCopy>();
+                //Making the bullet take damage
+                tripleCopy.GetComponent<HealthSystem>().TakeDamage(damage);
+                dead = hs.TakeDamage(tripleCopy.damage);
+            }
+            else
+            {
+                //Making the bullet take damage
+                bullet.GetComponent<HealthSystem>().TakeDamage(damage);
+                dead = hs.TakeDamage(bullet.damage);
+            }
+
+            if (dead)
             {
                 KillEnemy();
             }

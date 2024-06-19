@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 377b9f13a0411584e8b5211bfa71e992, type: 3}
-  m_Name: PlayerTriple
+  m_Name: PlayerBoomerang
   m_EditorClassIdentifier: 
-  speed: 16
+  speed: 10
   damage: 1
-  bulletPrefab: {fileID: 2792341256585668953, guid: f7c9eb10c8b1b1b44b6afe019326a12f, type: 3}
+  bulletPrefab: {fileID: 2792341256585668953, guid: 50b618bbcc34e1d4c82fb57f1dcb5124, type: 3}
   tag: BulletPlayer
-  color: {r: 1, g: 0, b: 0, a: 1}
-  material: {fileID: 2100000, guid: 8df117a8d454a7e418e1d72ea05d736e, type: 2}
-  maxAmmo: 12
+  color: {r: 1, g: 0.8700229, b: 0, a: 1}
+  material: {fileID: 2100000, guid: 97c0c90d7d9c8894888e9246b4e35812, type: 2}
+  maxAmmo: 3
   currentAmmo: 0
-  rechargeCooldown: 1
+  rechargeCooldown: 2
   shootCooldown: 0.5
   canShoot: 1
   isCharge: 0

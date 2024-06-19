@@ -141,6 +141,10 @@ public class PlayerController : MonoBehaviour
             //ANIMATING
             transform.DOScale(0.8f, 0.1f).OnComplete(ReturnScaleEase).From(1f);
             shooter.bulletIndex += Q - E;
+
+            //Changing the color of the bar to the color of the current bullet
+            UIManager.main.lifeBar.color = shooter.bulletsList[shooter.bulletIndex].color;
+
         }
 
     }

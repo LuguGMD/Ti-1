@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8950035917160219389}
   m_Layer: 0
   m_Name: TripleCopy
-  m_TagString: Untagged
+  m_TagString: BulletPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,3 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  damage: 1
+  psPaint: {fileID: 3561886987273407745, guid: 4a3396382382d7246b67776708456695, type: 3}
+  hs: {fileID: 8852165140753960861}
