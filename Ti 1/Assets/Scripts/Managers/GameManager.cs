@@ -71,8 +71,16 @@ public class GameManager : MonoBehaviour
             //Passing the current level
             currentLevel = levelPassed+1;
 
-            //Going to the cutscene scene
-            SceneManager.LoadScene(6);
+            //Checking if level has a cutscene
+            if (currentLevel <= 3)
+            {
+                //Going to the cutscene scene
+                SceneManager.LoadScene(6);
+            }
+            else
+            {
+                SceneManager.LoadScene(4);
+            }
 
         }
     }

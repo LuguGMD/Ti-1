@@ -54,6 +54,21 @@ public class MenuHandler : MonoBehaviour
         SceneManager.LoadScene(GameManager.main.currentLevel);
     }
 
+    public void FirstStart()
+    {
+        //Checking if it's the first level
+        if (GameManager.main.currentLevel == 1)
+        {
+            //Loading first Cutscene
+            SceneManager.LoadScene(6);
+        }
+        else
+        {
+            //Loading Level Selector
+            SceneManager.LoadScene(5);
+        }
+    }
+
     public void ExitGame()
     {
         #if UNITY_EDITOR
