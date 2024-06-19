@@ -144,7 +144,19 @@ public class PlayerController : MonoBehaviour
 
             //Changing the color of the bar to the color of the current bullet
             UIManager.main.lifeBar.color = shooter.bulletsList[shooter.bulletIndex].color;
+            
+            //Running through all the colors
+            for (int i = 0; i < shooter.bulletsList.Count; i++)
+            {
+                //Gettting the index based on the selected bullet
+                int j = i + shooter.bulletIndex;
 
+                //Wrapping the array
+                if(j >= shooter.bulletsList.Count) j -= shooter.bulletsList.Count;
+
+                //Changing the color of the pen UI
+                UIManager.main.colors[i].color = shooter.bulletsList[j].color;
+            }
         }
 
     }

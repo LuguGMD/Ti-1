@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public Image losePanel;
     public Image pausePanel;
 
+    public Image[] colors;
+
     private void Awake()
     {
         if (main == null)
