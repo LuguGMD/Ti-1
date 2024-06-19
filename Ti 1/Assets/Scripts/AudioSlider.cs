@@ -20,13 +20,21 @@ public class AudioSlider : MonoBehaviour
         
     }
 
-    public void ChangeAudio()
+    public void ChangeSFX()
     {
         //Getting the slider's value
         float value = slider.value;
 
         //Changing volume audio
         AudioManager.main.audioSFX.volume = value;
+    }
+    public void ChangeMSC()
+    {
+        //Getting the slider's value
+        float value = slider.value;
+
+        //Changing volume audio
+        AudioManager.main.audioBG.volume = value;
     }
 
 }

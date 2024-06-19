@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
 
     public enum AudiosBG
     {
-        
+        main
     }
 
     public enum AudiosSFX
@@ -39,6 +39,11 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        ChangeMusic((int)AudiosBG.main);
     }
 
     public void PlaySFX(int id, bool pitch = false)
