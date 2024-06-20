@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            TakeDamage(other.GetComponent<EnemyController>().damage);
+            TakeDamage(1);
         }
         else if(other.CompareTag("BulletEnemy"))
         {

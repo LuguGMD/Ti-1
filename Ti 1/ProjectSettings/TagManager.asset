@@ -9,6 +9,7 @@ TagManager:
   - BulletEnemy
   - BulletPlayer
   - Heal
+  - Boss
   layers:
   - Default
   - TransparentFX
