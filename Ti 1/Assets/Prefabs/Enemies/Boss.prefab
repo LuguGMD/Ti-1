@@ -185,7 +185,7 @@ MonoBehaviour:
   idleRushChance: 35
   wanderRushChance: 45
   wanderIdleChance: 5
-  speed: 6
+  speed: 3
   hs: {fileID: 3513014830669327076}
 --- !u!1 &1377423396303015870
 GameObject:
