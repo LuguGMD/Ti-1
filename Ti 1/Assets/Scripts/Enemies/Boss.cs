@@ -29,8 +29,8 @@ public class Boss : MonoBehaviour
     //Looking foward
     private Vector3 lookingDir = new Vector3(0f, 0f, 1f);
     private float lookingAngle = 0;
-    private float minAngle = -80f;
-    private float maxAngle = 80f;
+    private float minAngle = -90f;
+    private float maxAngle = 90f;
     //Speed to move in wander state
     private float angleSpeed = 18f;
     //Direction to move in wander state
@@ -192,7 +192,7 @@ public class Boss : MonoBehaviour
             float chance = Random.Range(0f, 100f);
 
             //Changing direcions 25%
-            if (chance <= 25f)
+            if (chance <= 10f)
             {
                 dir *= -1;
             }
