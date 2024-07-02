@@ -600,8 +600,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Luiz Gustavo Martinez Andrade:\n\tProgramming\n\tScene Models\n\tSound
-    Effects\n\tVisual Effects\n\tGame Design\n\t\nGiovanna Silva Brescia\n\tArt Director\n\tLogo\t\n\tCharacter
-    Models\n\tGame Design\n\nOther\n\tMusic -> Pixabay"
+    Effects\n\tVisual Effects\n\tGame Design\n\tShaders\n\t\nGiovanna Silva Brescia\n\tArt
+    Director\n\tLogo\t\n\tCharacter Models\n\tGame Design\n\nOther\n\tMusic -> Pixabay"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
