@@ -20,7 +20,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 8df117a8d454a7e418e1d72ea05d736e, type: 2}
   maxAmmo: 3
   currentAmmo: 3
-  rechargeCooldown: 1
+  rechargeCooldown: 1.6
   shootCooldown: 0.5
   canShoot: 0
   isCharge: 0

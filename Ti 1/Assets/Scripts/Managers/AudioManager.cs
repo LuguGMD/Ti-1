@@ -25,7 +25,14 @@ public class AudioManager : MonoBehaviour
     {
         shoot,
         impact,
-        hit
+        hit,
+        destroy,
+        heal,
+        cut,
+        sweep,
+        vacuum,
+        hover,
+        select
     }
 
     private void Awake()

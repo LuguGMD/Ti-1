@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
             //Destroying heal object
             Destroy(other.gameObject);
 
+            //Playing Sound
+            AudioManager.main.PlaySFX((int)AudioManager.AudiosSFX.heal, true);
 
             float perc = healthSystem.currentHealth / healthSystem.maxHealth;
 

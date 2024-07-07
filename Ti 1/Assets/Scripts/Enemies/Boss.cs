@@ -239,6 +239,9 @@ public class Boss : MonoBehaviour
             //Starting transition to other state
             StartCoroutine(StartTransition(stateTime[(int)currentState], State.Return));
 
+            //Playing Sound
+            AudioManager.main.PlaySFX((int)AudioManager.AudiosSFX.vacuum, true);
+
             //Passing the first frame
             isStart = false;
         }
